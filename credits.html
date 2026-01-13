@@ -1,0 +1,187 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lono - The AI-powered app builder that turns your ideas into fully functional code. Just describe what you
+    want—we ship production-ready apps in minutes. No coding required. Start building today.</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=gambetta@400&f[]=supreme@400&f[]=beVietnam-pro@500&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.14"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Optional: solid + regular + brands (most people just use this one line above) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pro Credits Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <script src="https://fonts.googleapis.com/css2?family=Gambetta:wght@600&family=Material+Symbols+Outlined" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Glass effect */
+    .glass { 
+      backdrop-filter: blur(15px) saturate(180%);
+      background-color: rgba(255,255,255,0.05);
+    }
+    /* Entry animation */
+    .fade-in { 
+      opacity: 0; 
+      transform: translateY(20px); 
+      animation: fadeInUp 1s forwards; 
+    }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Shimmer effect for numbers */
+    .shimmer {
+      background: linear-gradient(90deg, #fff, #b36cff, #fff);
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 2s infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-neutral-950 font-sans text-white overflow-x-hidden">
+
+  <!-- DASHBOARD -->
+  <div class="max-w-7xl mx-auto px-6 py-16">
+
+    <!-- HEADER -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
+      <h1 class="text-4xl font-bold gambetta mb-4 md:mb-0 shimmer">My Credits Dashboard</h1>
+      <button class="px-6 py-3 bg-purple-500 hover:bg-purple-600 rounded-2xl font-semibold transition-all inline-flex items-center gap-2 cta-btn">
+        <i class="fa-solid fa-gift"></i> Earn Credits
+      </button>
+    </div>
+
+    <!-- SUMMARY CARDS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 supreme">
+      <div class="glass p-6 rounded-2xl border border-white/10 hover:border-purple-400/40 transition-all fade-in" style="animation-delay: 0.1s;">
+        <div class="text-white/70 uppercase text-sm mb-1">Total Credits</div>
+        <div class="text-3xl font-bold text-purple-400" data-count="1250">0</div>
+      </div>
+      <div class="glass p-6 rounded-2xl border border-white/10 hover:border-purple-400/40 transition-all fade-in" style="animation-delay: 0.3s;">
+        <div class="text-white/70 uppercase text-sm mb-1">Earned</div>
+        <div class="text-3xl font-bold text-green-400" data-count="750">0</div>
+      </div>
+      <div class="glass p-6 rounded-2xl border border-white/10 hover:border-purple-400/40 transition-all fade-in" style="animation-delay: 0.5s;">
+        <div class="text-white/70 uppercase text-sm mb-1">Used</div>
+        <div class="text-3xl font-bold text-red-400" data-count="300">0</div>
+      </div>
+      <div class="glass p-6 rounded-2xl border border-white/10 hover:border-purple-400/40 transition-all fade-in" style="animation-delay: 0.7s;">
+        <div class="text-white/70 uppercase text-sm mb-1">Pending</div>
+        <div class="text-3xl font-bold text-yellow-400" data-count="100">0</div>
+      </div>
+    </div>
+
+    <!-- GRAPH + ACTIVITY -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 supreme">
+
+      <!-- BAR CHART -->
+      <div class="glass rounded-3xl p-6 border border-white/10 hover:border-purple-400/40 transition-all fade-in" style="animation-delay: 0.9s;">
+        <div class="text-white/70 mb-4 uppercase font-semibold">Credits & Referrals Over Time</div>
+        <canvas id="creditsChart" class="rounded-xl"></canvas>
+      </div>
+
+      <!-- ACTIVITY FEED -->
+      <div class="glass rounded-3xl p-6 border border-white/10 hover:border-purple-400/40 transition-all fade-in" style="animation-delay: 1.1s;">
+        <div class="text-white/70 mb-4 uppercase font-semibold supreme">Recent Activity</div>
+        <ul class="space-y-4" id="activityFeed">
+          <li class="flex justify-between items-center hover:bg-purple-900/10 p-3 rounded-xl transition-all">
+            <span>Account Created</span>
+            <span class="text-green-400 font-semibold">+200</span>
+          </li>
+          <li class="flex justify-between items-center hover:bg-purple-900/10 p-3 rounded-xl transition-all">
+            <span>Invited Builder</span>
+            <span class="text-green-400 font-semibold">+500</span>
+          </li>
+          <li class="flex justify-between items-center hover:bg-purple-900/10 p-3 rounded-xl transition-all">
+            <span>Used Credits on Project</span>
+            <span class="text-red-400 font-semibold">-300</span>
+          </li>
+          <li class="flex justify-between items-center hover:bg-purple-900/10 p-3 rounded-xl transition-all">
+            <span>Pending Reward</span>
+            <span class="text-yellow-400 font-semibold">+100</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FOOTER CTA -->
+    <div class="mt-12 text-center fade-in" style="animation-delay: 1.3s;">
+      <a href="#"
+         class="inline-flex items-center gap-3 px-10 py-4 rounded-2xl bg-purple-500 hover:bg-purple-600 text-white font-semibold supreme transition-all hover:scale-105 cta-btn">
+        <i class="fa-solid fa-rocket"></i>
+        Redeem Credits
+      </a>
+    </div>
+  </div>
+
+  <!-- JS Animations -->
+  <script>
+    // COUNT-UP NUMBERS
+    function countUp(el) {
+      const target = +el.getAttribute('data-count');
+      let count = 0;
+      const step = Math.ceil(target / 100); // animation steps
+      const interval = setInterval(() => {
+        count += step;
+        if(count >= target) {
+          el.textContent = target;
+          clearInterval(interval);
+        } else {
+          el.textContent = count;
+        }
+      }, 15);
+    }
+
+    document.querySelectorAll('[data-count]').forEach(el => countUp(el));
+
+    // CHART.JS BAR CHART
+    const ctx = document.getElementById('creditsChart').getContext('2d');
+    const creditsChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+        datasets: [
+          {
+            label: 'Credits Earned',
+            data: [200, 300, 150, 100],
+            backgroundColor: 'rgba(139,92,246,0.7)',
+            borderRadius: 6
+          },
+          {
+            label: 'Successful Referrals',
+            data: [2, 5, 3, 1],
+            backgroundColor: 'rgba(16,185,129,0.7)',
+            borderRadius: 6
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { labels: { color: 'white' } },
+          tooltip: { mode: 'index', intersect: false }
+        },
+        scales: {
+          x: { ticks: { color: 'white' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+          y: { ticks: { color: 'white' }, grid: { color: 'rgba(255,255,255,0.1)' } }
+        },
+        animation: { duration: 2000, easing: 'easeOutQuart' }
+      }
+    });
+  </script>
+
+</body>

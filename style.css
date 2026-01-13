@@ -1,0 +1,508 @@
+:root {
+  --black-bg: #2a2a2e;
+  --black-text: #2a2a2e;
+}
+
+.black-bg {
+  background-color: var(--black-bg);
+}
+
+.black-text {
+  color: var(--black-text);
+}
+
+.border-thin {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 500ms ease-in;
+}
+
+.supreme {
+  font-family: 'Supreme', sans-serif;
+}
+
+.gambetta {
+  font-family: 'Gambetta', sans-serif;
+}
+
+.be-vietnam-pro {
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.blur-svg {
+  width: 15px;
+  height: 15px;
+  fill: white;
+  opacity: 0.9;
+}
+
+.small-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.main-sm-span {
+  opacity: 1;
+  transform: none;
+}
+
+textarea {
+  max-height: 120px;
+  font-family: inherit;
+  height: 60px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.big-text {
+  font-size: clamp(2.4rem, 7vw + 0.5rem, 3.75rem);
+  line-height: 1.08;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  word-spacing: 0.08em;                             /* Prevents awkward gaps/splits */
+  white-space: nowrap;                              /* Forces single line when possible */
+  overflow: hidden;                                 /* Hides any overflow gracefully */
+  text-overflow: ellipsis;                          /* Adds "..." if it ever overflows */
+  display: block;                                   /* Ensures proper behavior */
+  max-width: 100%;
+}
+
+/* Responsive scaling using clamp() – smooth and fluid */
+.big-text {
+  font-size: clamp(2.5rem, 8vw, 3.75rem);
+  /* min 40px → preferred → max 60px */
+  line-height: clamp(2.8rem, 9vw, 4.2rem);
+}
+
+/* Optional: finer control with media queries if you want specific breakpoints */
+@media (max-width: 1024px) {
+  .big-text {
+    font-size: clamp(2.5rem, 7vw, 3.2rem);
+    line-height: 1.15;
+  }
+}
+
+@media (max-width: 768px) {
+  .big-text {
+    font-size: clamp(2.25rem, 9vw, 2.8rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .big-text {
+    font-size: clamp(2rem, 10vw, 2.5rem);
+    letter-spacing: -0.3px;
+  }
+}
+
+@media (max-width: 360px) {
+  .big-text {
+    font-size: clamp(1rem, 10vw, 2.5rem);
+  }
+}
+
+@media (min-width: 1600px) {
+  .big-text {
+    letter-spacing: -1px;
+  }
+}
+
+
+
+/* 1. The Holy Grail of Modern CSS — 2025 edition */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  /* Stops iOS from zooming text */
+}
+
+html {
+  text-size-adjust: 100%;
+  /* Stops IE text zoom */
+  -webkit-text-size-adjust: 100%;
+  /* Stops iOS text zoom on rotate */
+  scroll-behavior: smooth;
+  /* Native smooth scrolling */
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  height: 200vh;
+  /* Full height even when content is short */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: all ease 0.6s;
+  margin: 10px;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  color: #656565;
+  /* Prevents layout shift */
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  /* No more ugly default fonts */
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  /* No more blue links by default */
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+ol,
+ul,
+blockquote,
+figcaption {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  /* Most modern UIs use 500–600 instead of bold */
+  line-height: 1.5;
+  color: inherit;
+}
+
+/* ────── Beautiful, predictable heading scale (2025 standard) ────── */
+h1 {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+h4 {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 600;
+}
+
+h5 {
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  font-weight: 600;
+}
+
+h6 {
+  font-size: clamp(1.125rem, 3.5vw, 1.5rem);
+  font-weight: 600;
+}
+
+/* Body text — the one that actually gets read */
+p,
+li {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  /* 16px → 18px fluid */
+  line-height: 1.65;
+  letter-spacing: -0.003em;
+}
+
+/* Lists — no bullets, no weird spacing */
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li+li {
+  margin-top: 0.5rem;
+}
+
+/* Bonus: make long paragraphs feel premium */
+p+p {
+  margin-top: 1.25rem;
+}
+
+h1+p,
+h2+p,
+h3+p,
+h4+p {
+  margin-top: 1rem;
+}
+
+textarea {
+  scrollbar-width: none;
+}
+
+textarea::-webkit-scrollbar {
+  display: none;
+}
+
+label {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.visible {
+  opacity: 1 !important;
+}
+
+.nav-glass-active {
+  backdrop-filter: blur(12px);
+}
+
+.nav-glass-dark {
+  background: rgba(10, 10, 10, 0.6);
+}
+
+#image-preview.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sub-section {
+  scroll-margin-top: 10px;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.12);                  
+  background: linear-gradient(135deg, 
+              rgba(255, 255, 255, 0.18) 0%, 
+              rgba(255, 255, 255, 0.08) 50%, 
+              transparent 100%);                         
+  border: 1px solid rgba(255, 255, 255, 0.25);            
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15),             
+              inset 0 1px 0 rgba(255, 255, 255, 0.3);     
+  backdrop-filter: blur(16px);                           
+  -webkit-backdrop-filter: blur(16px);                   
+}
+
+.glass-dark {
+  background: linear-gradient(rgba(12, 12, 12, 0.821), transparent);
+  backdrop-filter: blur(10px);
+  /* Optional: enhances the glass effect */
+  -webkit-backdrop-filter: blur(10px);
+  /* Safari support */
+}
+
+.spinning-gradient-border {
+  position: relative;
+  isolation: isolate;
+  /* prevents overflow issues */
+  overflow: hidden;
+}
+
+.spinning-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  /* slightly larger to cover rounded corners */
+  border-radius: inherit;
+  padding: 3px;
+  /* border thickness */
+  background: conic-gradient(from 0deg,
+      #e2e8f0,
+      /* slate-200 */
+      #94a3b8,
+      /* slate-400 */
+      #64748b,
+      /* slate-500 */
+      #475569,
+      /* slate-600 */
+      #e2e8f0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: spin 4s linear infinite;
+  pointer-events: none;
+  /* lets clicks pass through */
+  z-index: 0;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Optional: stronger hover effect */
+.spinning-gradient-border:hover::before {
+  animation-duration: 2s;
+  /* speeds up on hover */
+}
+
+#mobile-menu-button{
+  z-index: 1001;
+  position: relative;
+  vertical-align: middle;
+}
+
+.signup-tall{
+  height: 100vh;
+}
+
+.signup-height-screen{
+  height: 130vh;
+}
+
+.login-height-screen{
+  height: 110vh;
+}
+.login-tall{
+  height: 100vh;
+}
+
+.animate-box{
+  animation: fadeUp 1s linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.input-control input:focus {
+  outline: 0;
+}
+
+.input-control.success input {
+  border-color: #22c55e; /* Tailwind's green-500 */
+}
+
+.input-control.input-error input {
+  border-color: #ff3860; /* Tailwind's red-500 */
+}
+
+@keyframes floatParticle {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  50% { transform: translateY(-50px) rotate(180deg); opacity: 0.7; }
+  100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+.particle {
+  position: absolute;
+  width: 12px; height: 12px;
+  background: radial-gradient(circle, #fff 0%, #9f7cff 100%);
+  border-radius: 50%;
+  animation: floatParticle 4s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 10px #9f7cff, 0 0 20px #9f7cff40; transform: scale(1); }
+  50% { box-shadow: 0 0 20px #9f7cff, 0 0 40px #9f7cff60; transform: scale(1.05); }
+}
+
+#free-credits-btn {
+  background: linear-gradient(135deg, #6a0dad, #9f7cff);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  animation: pulseGlow 2s infinite;
+  transition: transform 0.2s;
+}
+
+#free-credits-btn:hover {
+  transform: scale(1.1) rotate(-2deg);
+}
+
+@keyframes cardBounce {
+  0%, 100% { transform: translateY(0); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+  50% { transform: translateY(-10px); box-shadow: 0 20px 30px rgba(0,0,0,0.4); }
+}
+
+.credit-card {
+  background: #1c1c1c;
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: transform 0.3s;
+}
+
+.credit-card:hover {
+  animation: cardBounce 0.6s ease forwards;
+}
+
+@keyframes shimmer {
+  0% { background-position: -500px 0; }
+  100% { background-position: 500px 0; }
+}
+
+.shimmer-text {
+  font-weight: bold;
+  font-size: 2rem;
+  background: linear-gradient(90deg, #fff 20%, #9f7cff 50%, #fff 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 1000px 100%;
+  animation: shimmer 5s infinite;
+}
+
